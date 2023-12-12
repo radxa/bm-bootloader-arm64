@@ -45,10 +45,23 @@ $ tar zxvf ${AIM_BM1684X_SDK}/prebuilt/linaro.tgz -C ${AIM_BM1684X_SDK}
 
 ### Step one: Build bootloader and kernel
 
+Example one: Build Radxa AICore BM1684x IO Board
+
 ```
 $ export AIM_BM1684X_SDK="/workspace/aim-bm1684x-sdk"
 $ export PATH="${AIM_BM1684X_SDK}/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin:$PATH"
 $ cd ${AIM_BM1684X_SDK}
+```
+
+Replace devicetree
+
+```
+$ cp ${AIM_BM1684X_SDK}/linux-arm64/arch/arm64/boot/dts/bitmain/bm1684x_radxa_aicore_io.dts ${AIM_BM1684X_SDK}/linux-arm64/arch/arm64/boot/dts/bitmain/bm1684x_sm7m_v1.0.dts
+```
+
+Start build
+
+```
 $ source bootloader-arm64/scripts/envsetup.sh
 $ build_bsp_without_package
 ```
